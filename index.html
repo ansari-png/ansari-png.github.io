@@ -1,21 +1,118 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>My Website</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <meta name="description" content="ANSARI PORTFOLIO — developer, designer, maker." />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      text-align: center;
-      margin-top: 50px;
-    }
-    h1 {
-      color: #333;
-    }
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#4f46e5}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    body{background:linear-gradient(180deg,#071029 0%, #071934 100%);color:#e6eef6;line-height:1.5}
+    .wrap{max-width:1000px;margin:36px auto;padding:28px}
+    header{display:flex;gap:20px;align-items:center}
+    .avatar{width:96px;height:96px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:28px;color:white}
+    h1{margin:0;font-size:28px}
+    p.lead{margin:6px 0;color:var(--muted)}
+    nav{margin-top:16px;display:flex;gap:10px}
+    a.btn{background:rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:inherit;text-decoration:none;font-size:14px}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:28px}
+    .card{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px}
+    .projects{display:grid;gap:14px}
+    .project{display:flex;flex-direction:column;gap:6px;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.015),transparent)}
+    .project h3{margin:0;font-size:16px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,0.03)}
+    .contact form{display:flex;flex-direction:column;gap:8px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:8px;color:inherit}
+    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+    @media (max-width:880px){.grid{grid-template-columns:1fr}.avatar{width:76px;height:76px}}
   </style>
 </head>
 <body>
-  <h1>Welcome to My Website!</h1>
-  <p>This site is hosted for free on GitHub Pages </p>
+  <div class="wrap">
+    <header>
+      <div class="avatar">YN</div>
+      <div>
+        <h1>Your Name</h1>
+        <div class="lead">Frontend developer · Backend tinkerer · Open-source contributor</div>
+        <nav>
+          <a class="btn" href="#projects">Projects</a>
+          <a class="btn" href="#about">About</a>
+          <a class="btn" href="#contact">Contact</a>
+          <a class="btn" href="/resume.pdf" target="_blank">Resume</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main>
+        <section id="projects" class="card">
+          <h2>Selected projects</h2>
+          <div class="projects">
+            <article class="project">
+              <h3>Project One — <small class="muted">A short one-line description</small></h3>
+              <p class="muted">Technologies: HTML · CSS · JavaScript</p>
+              <div class="tags"><span class="tag">Open-source</span><span class="tag">UI</span></div>
+              <div style="margin-top:8px"><a class="btn" href="#" target="_blank">Live</a> <a class="btn" href="#" target="_blank">Code</a></div>
+            </article>
+
+            <article class="project">
+              <h3>Project Two</h3>
+              <p class="muted">A few sentences about what it does and why it's useful.</p>
+              <div class="tags"><span class="tag">API</span><span class="tag">Node.js</span></div>
+            </article>
+
+            <article class="project">
+              <h3>Project Three</h3>
+              <p class="muted">Short description and results (e.g. improved X by Y%).</p>
+              <div class="tags"><span class="tag">Performance</span><span class="tag">SQL</span></div>
+            </article>
+          </div>
+        </section>
+
+        <section id="about" class="card" style="margin-top:18px">
+          <h2>About me</h2>
+          <p class="muted">Write a short paragraph about your background, skills and what you're looking for. Example: I build reliable web apps and love improving performance and developer experience.</p>
+          <ul>
+            <li>Languages: JavaScript, TypeScript, SQL</li>
+            <li>Tools: Git, Docker, AWS</li>
+            <li>Interests: Open-source, developer tools, data</li>
+          </ul>
+        </section>
+
+      </main>
+
+      <aside>
+        <div class="card">
+          <h3>Contact</h3>
+          <div class="contact">
+            <form action="mailto:your.email@example.com" method="post" enctype="text/plain">
+              <input type="text" name="name" placeholder="Your name" required />
+              <input type="email" name="email" placeholder="Your email" required />
+              <textarea name="message" rows="5" placeholder="Message"></textarea>
+              <button type="submit" class="btn">Send</button>
+            </form>
+            <p style="margin-top:10px;color:var(--muted)">Or email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h3>Skills</h3>
+          <p class="muted">Highlight your top skills or certifications.</p>
+          <div class="tags"><span class="tag">SQL</span><span class="tag">PL/SQL</span><span class="tag">Linux</span></div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Your Name — Built with  • <a href="#" style="color:inherit">GitHub</a>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
