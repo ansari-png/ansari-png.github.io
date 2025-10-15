@@ -2,128 +2,327 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MOHAMMED THAMEEN ANSARI — Portfolio</title>
-  <meta name="description" content="ANSARI PORTFOLIO — developer, designer, maker." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mohammed Thameen Ansari — Portfolio</title>
+  <meta name="description" content="Professional portfolio — developer, designer, maker." />
+
+  <!-- Google Fonts: classy serif for headings + modern sans for UI -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#4f46e5}
+    :root{
+      --bg: #0b1220; /* deep navy */
+      --card: rgba(255,255,255,0.04);
+      --muted: rgba(255,255,255,0.65);
+      --accent: #7dd3fc; /* cyan-ish */
+      --accent-2: #a78bfa; /* purple */
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius: 18px;
+      color-scheme: dark;
+    }
+
+    /* Reset & base */
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial}
-    body{background: linear-gradient(180deg,#071029 0%, #071934 100%); color: #e6eef6;}{
-  background: linear-gradient(180deg,#071029 0%, #071934 100%);color: #e6eef6;}{
-  background: linear-gradient(180deg,#071029 0%, #071934 100%);
-  color: #e6eef6;
-}{
-  background: linear-gradient(180deg,#071029 0%, #071934 100%);
-  color: #e6eef6;
-}{
-  background: linear-gradient(180deg,#071029 0%, #071934 100%);
-  color: #e6eef6;
-}
-    .wrap{max-width:1000px;margin:36px auto;padding:28px}
-    header{display:flex;gap:20px;align-items:center}
-    .avatar{width:96px;height:96px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:28px;color:white}
-    h1{margin:0;font-size:28px}
-    p.lead{margin:6px 0;color:var(--muted)}
-    nav{margin-top:16px;display:flex;gap:10px}
-    a.btn{background:rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:inherit;text-decoration:none;font-size:14px}
-    .grid{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:28px}
-    .card{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px}
-    .projects{display:grid;gap:14px}
-    .project{display:flex;flex-direction:column;gap:6px;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.015),transparent)}
-    .project h3{margin:0;font-size:16px}
-    .tags{display:flex;gap:8px;flex-wrap:wrap}
-    .tag{font-size:12px;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,0.03)}
-    .contact form{display:flex;flex-direction:column;gap:8px}
-    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:8px;color:inherit}
-    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
-    @media (max-width:880px){.grid{grid-template-columns:1fr}.avatar{width:76px;height:76px}}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(120,80,200,0.08), transparent),
+                  radial-gradient(900px 500px at 90% 80%, rgba(45,150,180,0.04), transparent),
+                  var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:32px;
+      line-height:1.5;
+    }
+
+    /* Layout container */
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      padding:28px;
+      border-radius:22px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      display:grid;
+      grid-template-columns: 360px 1fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    /* Sidebar (profile card) */
+    .profile-card{
+      background: linear-gradient(180deg, var(--glass), var(--glass-2));
+      border-radius:16px;
+      padding:20px;
+      backdrop-filter: blur(6px) saturate(1.1);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02), 0 6px 18px rgba(2,6,23,0.5);
+    }
+
+    .avatar{
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      overflow:hidden;
+      margin:0 auto;
+      box-shadow: 0 6px 24px rgba(7,12,27,0.6);
+      border:3px solid rgba(255,255,255,0.06);
+      transform:translateY(-30px);
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:grid;place-items:center;
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+    h1{font-family:'Playfair Display', serif;margin:12px 0 0 0;font-weight:600;font-size:1.6rem}
+    .role{color:var(--muted);font-size:0.95rem;margin-top:6px}
+
+    .profile-meta{margin-top:8px;font-size:0.95rem;color:var(--muted)}
+
+    .socials{display:flex;gap:8px;margin-top:12px;justify-content:center}
+    .socials a{padding:8px 10px;border-radius:10px;background:rgba(255,255,255,0.02);text-decoration:none;color:var(--muted);font-size:0.9rem}
+
+    /* Main content */
+    .main{
+      padding:22px 18px;
+      background:transparent;
+      border-radius:12px;
+    }
+
+    .hero{
+      display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+    }
+    .hero h2{font-family:'Playfair Display',serif;margin:0;font-size:1.5rem}
+    .hero p{margin:8px 0 0 0;color:var(--muted)}
+
+    /* Fancy animated tagline */
+    .tagline{
+      font-weight:600;font-size:0.95rem;color:var(--accent);
+      display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg, rgba(125,211,252,0.06), rgba(167,139,250,0.04));
+      animation: floaty 4s ease-in-out infinite;
+      transform-origin:center;
+    }
+    @keyframes floaty{
+      0%{transform:translateY(0)}
+      50%{transform:translateY(-6px)}
+      100%{transform:translateY(0)}
+    }
+
+    /* Sections */
+    section{margin-top:18px}
+    .section-title{display:flex;align-items:center;gap:12px;font-weight:600;color:#cfeefe}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
+      transition:transform .35s cubic-bezier(.2,.9,.2,1), box-shadow .35s;
+    }
+    .card:hover{transform:translateY(-8px);box-shadow:0 14px 40px rgba(2,6,23,0.6)}
+
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:0.85rem;color:var(--muted)}
+
+    /* Project preview */
+    .project-title{font-weight:600;margin:0 0 6px 0}
+    .project-desc{color:var(--muted);font-size:0.92rem}
+
+    /* Contact form (minimal) */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .input,textarea,button{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    textarea{min-height:120px;resize:vertical}
+    button{cursor:pointer;background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:#052027;font-weight:700}
+
+    /* Footer small */
+    footer{margin-top:18px;color:var(--muted);font-size:0.85rem;text-align:center}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .wrap{grid-template-columns:1fr; padding:18px}
+      .avatar{margin-top:-40px}
+      .profile-card{display:flex;align-items:center;gap:14px}
+      .profile-card .meta{flex:1}
+    }
+
+    /* Subtle reveal animations when element enters viewport */
+    .reveal{opacity:0;transform:translateY(8px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.show{opacity:1;transform:none}
+
+    /* small utility */
+    .muted{color:var(--muted)}
+
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-  <div class="profile-img"><a href="page2.html">no image</a>
-</div>
-      <div
-        <h1>MOHAMMED THAMEEN ANSARI</h1>
-        <div class="lead"> Oracle PL/SQL Developer | B.Com with Strong Database & Data-Processing Skills</div>
-        <nav>
-          <a class="btn" href="#projects">Projects</a>
-          <a class="btn" href="#about">About</a>
-          <a class="btn" href="#contact">Contact</a>
-          <a class="btn" href="/resume.pdf" target="_blank">Resume</a>
-        </nav>
+
+  <div class="wrap" id="wrap">
+
+    <!-- SIDEBAR / PROFILE -->
+    <aside class="profile-card reveal" id="profileCard">
+      <div class="avatar">
+        <!-- Place your profile.jpg in same folder and keep the filename profile.jpg -->
+        <img src="profile.jpg" alt="Profile" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'240\' height=\'240\'><rect width=\'100%\' height=\'100%\' fill=\'%237dd3fc\' /><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-size=\'28\' font-family=\'Inter\' fill=\'%230a1220\'>Profile</text></svg>'">
       </div>
-    </header>
 
-    <div class="grid">
-      <main>
-        <section id="projects" class="card">
-          <h2>Selected projects</h2>
-          <div class="projects">
-            <article class="project">
-              <h3>Project One — <small class="muted">A short one-line description</small></h3>
-              <p class="muted">Technologies: HTML · CSS · JavaScript</p>
-              <div class="tags"><span class="tag">Open-source</span><span class="tag">UI</span></div>
-              <div style="margin-top:8px"><a class="btn" href="#" target="_blank">Live</a> <a class="btn" href="#" target="_blank">Code</a></div>
-            </article>
+      <div style="text-align:center;margin-top:-8px">
+        <h1>Mohammed Thameen Ansari</h1>
+        <div class="role">Oracle PL/SQL Developer • Frontend tinkerer</div>
+        <div class="profile-meta">1 year experience • Performance tuning • SQL & PL/SQL • Portfolio below</div>
+        <div class="socials">
+          <a href="#" title="GitHub">GitHub</a>
+          <a href="#" title="LinkedIn">LinkedIn</a>
+          <a href="#" title="Resume">Resume</a>
+        </div>
+      </div>
 
-            <article class="project">
-              <h3>Project Two</h3>
-              <p class="muted">A few sentences about what it does and why it's useful.</p>
-              <div class="tags"><span class="tag">API</span><span class="tag">Node.js</span></div>
-            </article>
+      <hr style="margin:14px 0;border:none;border-top:1px solid rgba(255,255,255,0.02)">
 
-            <article class="project">
-              <h3>Project Three</h3>
-              <p class="muted">Short description and results (e.g. improved X by Y%).</p>
-              <div class="tags"><span class="tag">Performance</span><span class="tag">SQL</span></div>
-            </article>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div><strong>Location</strong><div class="muted">India</div></div>
+        <div><strong>Email</strong><div class="muted">youremail@example.com</div></div>
+        <div><strong>Languages</strong><div class="muted">English, Hindi</div></div>
+      </div>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <header class="hero reveal" id="hero">
+        <div style="flex:1">
+          <div class="tagline">Clean & Classy — Modern Portfolio</div>
+          <h2>Hello! I'm Mohammed — I build reliable database systems and pretty frontends.</h2>
+          <p class="muted">I love optimizing complex SQL, automating processes, and crafting interfaces that feel elegant. Below are selected projects, skills and ways to contact me.</p>
+        </div>
+        <div style="text-align:right;min-width:160px">
+          <div style="font-size:0.85rem;color:var(--muted);">Available for freelance & full-time</div>
+          <div style="margin-top:12px"><a href="#contact" style="text-decoration:none"><button style="padding:10px 14px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent-2),var(--accent));font-weight:700;cursor:pointer">Contact Me</button></a></div>
+        </div>
+      </header>
+
+      <section class="reveal" id="about">
+        <div class="section-title">About</div>
+        <div style="margin-top:10px;color:var(--muted)">I have hands-on experience in Oracle PL/SQL development and production support. I focus on performance tuning, writing maintainable SQL & PL/SQL, and building concise frontend interfaces using HTML/CSS/JS. I enjoy learning new tools and applying best practices to ship dependable apps.</div>
+
+        <div style="margin-top:12px" class="cards">
+          <div class="card">
+            <h3 style="margin:0">Core Strengths</h3>
+            <div class="muted" style="margin-top:8px">Database design, query optimization, PL/SQL packages, materialized views, analytical functions.</div>
           </div>
-        </section>
 
-        <section id="about" class="card" style="margin-top:18px">
-          <h2>About me</h2>
-          <p class="muted">Write a short paragraph about your background, skills and what you're looking for. Example: I build reliable web apps and love improving performance and developer experience.</p>
-          <ul>
-            <li>Languages: JavaScript, TypeScript, SQL</li>
-            <li>Tools: Git, Docker, AWS</li>
-            <li>Interests: Open-source, developer tools, data</li>
-          </ul>
-        </section>
+          <div class="card">
+            <h3 style="margin:0">Tools & Tech</h3>
+            <div class="skills" style="margin-top:8px">
+              <span class="chip">Oracle SQL</span>
+              <span class="chip">PL/SQL</span>
+              <span class="chip">HTML/CSS/JS</span>
+              <span class="chip">Git</span>
+              <span class="chip">Linux</span>
+            </div>
+          </div>
 
-      </main>
-
-      <aside>
-        <div class="card">
-          <h3>Contact</h3>
-          <div class="contact">
-            <form action="mailto:your.email@example.com" method="post" enctype="text/plain">
-              <input type="text" name="name" placeholder="Your name" required />
-              <input type="email" name="email" placeholder="Your email" required />
-              <textarea name="message" rows="5" placeholder="Message"></textarea>
-              <button type="submit" class="btn">Send</button>
-            </form>
-            <p style="margin-top:10px;color:var(--muted)">Or email: <a href="mailto:your.email@example.com">mdthameenansari@gmail.com</a></p>
+          <div class="card">
+            <h3 style="margin:0">Approach</h3>
+            <div class="muted" style="margin-top:8px">Measure performance, isolate bottlenecks, use indexes and set-based operations, and write clear documentation.</div>
           </div>
         </div>
+      </section>
 
-        <div class="card" style="margin-top:14px">
-          <h3>Skills</h3>
-          <p class="muted">Highlight your top skills or certifications.</p>
-          <div class="tags"><span class="tag">SQL</span><span class="tag">PL/SQL</span><span class="tag">Linux</span></div>
+      <section class="reveal" id="projects">
+        <div class="section-title">Selected Projects</div>
+        <div class="cards" style="margin-top:10px">
+
+          <article class="card">
+            <div class="project-title">ETL Performance Tuning</div>
+            <div class="project-desc">Reduced daily ETL runtime by 45% using set-based refactor, partition-aware queries and parallelism. Wrote PL/SQL utilities for monitoring and retry logic.</div>
+          </article>
+
+          <article class="card">
+            <div class="project-title">Interactive Portfolio UI</div>
+            <div class="project-desc">Single-file responsive portfolio with animated micro-interactions and neat typography. Built with plain HTML/CSS/vanilla JS for portability.</div>
+          </article>
+
+          <article class="card">
+            <div class="project-title">Data Validation Framework</div>
+            <div class="project-desc">Built a PL/SQL package for standardized validation rules applied before inserts/updates with clear logging and exception handling.</div>
+          </article>
+
         </div>
-      </aside>
-    </div>
+      </section>
 
-    <footer>
-      © <span id="year"></span> Ansari — Built with ❤ • <a href="#" style="color:inherit">GitHub</a>
-    </footer>
+      <section id="skills" class="reveal">
+        <div class="section-title">Skills</div>
+        <div style="margin-top:10px" class="cards">
+          <div class="card">
+            <h4 style="margin:0">Backend / DB</h4>
+            <div class="muted" style="margin-top:8px">Oracle, SQL tuning, PL/SQL packages, indexing, materialized views, collection types.</div>
+          </div>
+
+          <div class="card">
+            <h4 style="margin:0">Frontend</h4>
+            <div class="muted" style="margin-top:8px">Semantic HTML, CSS animations, responsive layouts, accessibility basics.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="reveal">
+        <div class="section-title">Contact</div>
+        <div style="margin-top:10px;color:var(--muted)">Want to work together? Send a message or email me at <strong>youremail@example.com</strong>.</div>
+
+        <div style="margin-top:12px" class="card">
+          <form onsubmit="event.preventDefault();alert('Thanks! This demo form won\'t actually send — replace with your form endpoint.');">
+            <div class="contact-grid">
+              <input class="input" placeholder="Your name" required>
+              <input class="input" placeholder="Your email" required>
+            </div>
+            <div style="margin-top:8px">
+              <input class="input" placeholder="Subject">
+            </div>
+            <div style="margin-top:8px">
+              <textarea placeholder="Message" required></textarea>
+            </div>
+            <div style="margin-top:8px;text-align:right">
+              <button type="submit">Send message</button>
+            </div>
+          </form>
+        </div>
+
+      </section>
+
+      <footer class="reveal">© 2025 Mohammed Thameen Ansari — Built with care. • <span class="muted">Made for recruiters & collaborators</span></footer>
+
+    </main>
+
   </div>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target); } });
+    },{threshold: 0.12});
+    revealEls.forEach(el=>obs.observe(el));
+
+    // Small easter: keyboard 't' toggles theme accent animation
+    document.addEventListener('keydown',(e)=>{
+      if(e.key.toLowerCase()==='t'){
+        document.documentElement.style.setProperty('--accent', getRandomColor());
+        document.documentElement.style.setProperty('--accent-2', getRandomColor());
+      }
+    });
+    function getRandomColor(){
+      const hue=Math.floor(Math.random()*360);
+      return `hsl(${hue} 80% 64%)`;
+    }
   </script>
+
+  <!-- Usage notes:
+    1) Save this file as index.html and place your profile image in the same folder named `profile.jpg`.
+    2) Replace the placeholder email, links, and project descriptions with real content.
+    3) To host: upload to GitHub Pages, Netlify, or any static host.
+    4) If you want alternate fonts or a dark/light toggle, tell me and I'll add it.
+  -->
+
 </body>
 </html>
