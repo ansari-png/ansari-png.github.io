@@ -1,0 +1,380 @@
+
+/* ==============================
+   HERO SECTION
+============================== */
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: center; /* center the intro box */
+  padding: 4rem 2rem;
+}
+
+/* Intro Box - Glassmorphic */
+.hero .intro {
+  background: rgba(30, 41, 59, 0.25); /* glass effect */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  max-width: 800px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* Heading & Text */
+.hero .intro h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #38bdf8;
+}
+
+.hero .intro h1 span {
+  color: #ffffff;
+}
+
+/* Profile Image Inside Hero */
+.hero .intro .profile-img {
+  margin: 1.5rem auto;
+  width: 150px; 
+  height: 150px;
+}
+
+.hero .intro .profile-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; /* circular */
+  border: none;       /* remove border */
+  box-shadow: none;   /* remove glow */
+  object-fit: cover;  /* fit inside box */
+  transition: transform 0.4s ease;
+}
+
+.hero .intro .profile-img img:hover {
+  transform: scale(1.05); /* subtle zoom on hover */
+}
+
+/* Buttons (already glassmorphic) */
+.buttons {
+  margin-top: 1.5rem;
+}
+
+/* Buttons are already styled with glass look from previous CSS */
+
+/* ==============================
+   ANIMATIONS
+============================== */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px);}
+  100% { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeInRight {
+  0% { opacity: 0; transform: translateX(50px);}
+  100% { opacity: 1; transform: translateX(0);}
+}
+
+
+/* ==============================
+   GLOBAL STYLES
+============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: url("glosy-macos-style-blue-shape.png") no-repeat center center/cover;
+  color: #e1e1e1;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body {
+  animation: bg-glow 10s ease-in-out infinite alternate;
+}
+
+/* ==============================
+   NAVBAR
+============================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(3, 18, 42, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(150, 146, 146, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  transition: background 0.4s ease;
+  cursor: pointer;
+}
+
+.navbar:hover {
+  background: rgba(2, 28, 56, 0.79);
+}
+
+.navbar .logo {
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+.navbar nav a {
+  margin: 0 1rem;
+  color: #e9ebed;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #38bdf8;
+  transition: width 0.3s ease;
+}
+
+.navbar nav a:hover {
+  color: #38bdf8;
+}
+
+.navbar nav a:hover::after {
+  width: 100%;
+}
+
+/* ==============================
+   BUTTONS SECTION
+============================== */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.buttons .btn {
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #ffffff;
+  background: rgba(56, 189, 248, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft gradient shine animation */
+.buttons .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(56, 189, 248, 0.1),
+    rgba(56, 189, 248, 0.4),
+    rgba(56, 189, 248, 0.1)
+  );
+  transition: all 0.5s ease;
+}
+
+.buttons .btn:hover::before {
+  left: 100%;
+}
+
+.buttons .btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  color: #0f172a;
+}
+
+
+/* ==============================
+   ABOUT SECTION (Glassmorphic)
+============================== */
+.about {
+  padding: 4rem 4rem;
+  margin: 4rem auto;
+  max-width: 920px;
+  background: rgba(74, 91, 119, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  letter-spacing: 2px;
+  cursor: pointer;}
+
+.about:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+}
+
+.about h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  animation: glowPulse 3s infinite alternate;
+}
+
+@keyframes glowPulse {
+  from { text-shadow: 0 0 5px rgba(56, 189, 248, 0.2); }
+  to { text-shadow: 0 0 20px rgba(255, 255, 255, 0); }
+}
+
+/* ==============================
+   PROJECTS
+============================== */
+.projects {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.projects h2 {
+  margin-bottom: 2rem;
+  color: #38bdf8;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+.project-list {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project-card {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 280px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(56, 189, 248, 0.2);
+}
+
+.project-card h3 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  color: #cbd5e1;
+}
+
+.project-card .link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.project-card .link:hover {
+  color: #0ea5e9;
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+}
+
+/* ==============================
+   CONTACT
+============================== */
+.contact {
+  padding: 4rem 2rem;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact h2 {
+  color: #38bdf8;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.9rem;
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  resize: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #94a3b8;
+}
+
+.contact-form .btn {
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  color: #0f172a;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.9rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.contact-form .btn:hover {
+  background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+}
+
+/* ==============================
+   FOOTER
+============================== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  color: #94a3b8;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
