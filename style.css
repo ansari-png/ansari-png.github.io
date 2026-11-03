@@ -221,6 +221,11 @@ BUTTONS
   cursor: pointer;
 }
 
+.btn i {
+  color: #38bdf8;
+  transition: color 0.35s ease;
+}
+
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
@@ -228,14 +233,7 @@ BUTTONS
   color: #0f172a;
 }
 
-.btn-primary {
-  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
-  color: #0f172a;
-  border: none;
-}
-
-.btn-primary:hover {
-  background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+.btn:hover i {
   color: #0f172a;
 }
 
